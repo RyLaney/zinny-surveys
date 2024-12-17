@@ -1,0 +1,117 @@
+{
+  "id": "vfx",
+  "name": "Visual Effects Assessment",
+  "version": "1.0",
+  "description": "Evaluation criteria for visual effects, including animation .",
+  "author": "the-zinny team",
+  "defaults": {
+    "range": [1, 10]
+  },
+    "attributes": [
+    {
+      "id": "artistry",
+      "name": "Artistry",
+      "description": "The artistic quality, creativity, or aesthetic integration of visuals.",
+      "keyframes": {
+        "0": "Not exceptional artistry",
+        "10": "Exceptional artistry and creativity"
+      }
+    },
+    {
+      "id": "technical_achievement",
+      "name": "Technical Achievement",
+      "description": "The innovation and use of new or improved technology.",
+      "keyframes": {
+        "0": "No new technology",
+        "10": "Pioneering use of technology"
+      }
+    },
+    {
+      "id": "production",
+      "name": "Production Achievement",
+      "description": "The improvement of support tools and processes, exceptional management of process, or groundbreaking scale of scope.",
+      "range": [-10, 10],
+      "keyframes": {
+        "-10": "Lacked support",
+        "0": "Neutral / unknown",
+        "10": "Exceptional use of supporting implementations"
+      }
+    },
+    {
+      "id": "craft",
+      "name": "Application Skill",
+      "description": "The skill level in applying VFX techniques effectively.",
+      "keyframes": {
+        "0": "Turnkey or off-the-shelf",
+        "10": "Masterful"
+      }
+    },
+    {
+      "id": "fidelity",
+      "name": "Overall Fidelity",
+      "description": "The overall realism and believability of the VFX.",
+      "keyframes": {
+        "0": "Unconvincing VFX",
+        "10": "Highly realistic or immersive"
+      }
+    },
+    {
+      "id": "fidelity_worst",
+      "name": "Worst Case Fidelity",
+      "description": "The quality of the least convincing VFX scenes.",
+      "keyframes": {
+        "0": "Poor quality",
+        "10": "No shots were out of place"
+      }
+    },
+    {
+      "id": "necessity",
+      "name": "Necessity of VFX",
+      "description": "The importance of visual effects in conveying the story, or overall success.",
+      "keyframes": {
+        "0": "Not necessary",
+        "10": "Crucial to the story"
+      }
+    },
+    {
+      "id": "contribution",
+      "name": "Contribution to Narrative",
+      "description": "The overall contribution of VFX to the film's narrative.",
+      "range": [-10, 10],
+      "keyframes": {
+        "-10": "Detracted from the film",
+        "0": "No contribution",
+        "10": "Significant contribution"
+      }
+    },
+    {
+      "id": "support",
+      "name": "Supporting Role",
+      "description": "How well the VFX supports and enhances the plot.",
+      "range": [-10, 10],
+      "keyframes": {
+        "-10": "Detracts from plot",
+        "0": "Neutral impact",
+        "10": "Enhances and supports plot"
+      }
+    },
+    {
+      "id": "community_value",
+      "name": "Community Value",
+      "description": "The value of the VFX work within the VFX community.",
+      "keyframes": {
+        "0": "No value",
+        "10": "Highly esteemed and influential"
+      }
+    },
+    {
+      "id": "humanity_value",
+      "name": "Humanity Value",
+      "description": "The moral or societal value of the film.",
+      "keyframes": {
+        "0": "No moral value",
+        "10": "Profound impact on viewers"
+      }
+    }
+  ]
+}
