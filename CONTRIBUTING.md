@@ -1,87 +1,78 @@
-with open("/mnt/data/CONTRIBUTING.md", "w") as file:
-### Customization and Contribution Guidelines
+# Contribution Guidelines for Zinny Surveys
 
-#### **Making Your Own Survey**
-- **Keys and Structure**:
-  - Each survey must include:
-    - `id`: Unique identifier for the survey.
-    - `name`: Human-readable name.
-    - `version`: Semantic versioning (e.g., `1.0`).
-    - `description`: Brief explanation of the survey's purpose.
-    - `defaults`: Default values such as scoring `range` for each criterion.
-    - `criteria`: List of measurable criteria with:
-      - `id`: Unique identifier for the criterion.
-      - `name`: Criterion's human-readable name.
-      - `description`: What the criterion evaluates.
-      - `keyframes` (optional): Mappings of specific values to descriptions.
-- **Example Template**:
+Zinny-surveys is interested in contributions to expand and refine its survey and weights definitions. Follow these guidelines to create high-quality, reusable contributions.
+
+A newr future addtion will be the ability to extend a survey with additional criteria, thus being able to use an extended survey in analysis with the original survey.
+
+## Customizing and Contributing Surveys
+
+### Creating a New Survey
+Surveys define the criteria for evaluating media. To create one:
+- Include the following fields:
+  - **id**: Unique survey identifier.
+  - **name**: Human-readable name.
+  - **version**: Use semantic versioning (e.g., `1.0`).
+  - **description**: Purpose of the survey.
+  - **extends** (optional): ID of the survey this one extends.
+  - **defaults**: Default scoring values (e.g., `range`).
+  - **criteria**: A list of measurable criteria with:
+    - **id**: Unique identifier for each criterion.
+    - **name**: Criterion's name.
+    - **description**: Explanation of what is being measured.
+    - **markers** (optional): Specific value labels.
+    - **range** (optional): Overrides the survey default range.
+
+#### Example Template
 ```json
 {
   "id": "example",
   "name": "Example Survey",
   "version": "1.0",
   "description": "An example survey for contributing.",
-  "defaults": {
-    "range": [1, 10]
-  },
+  "defaults": { "range": [1, 10] },
   "criteria": [
     {
       "id": "example_criterion",
       "name": "Example Criterion",
       "description": "An example measurable factor.",
-      "keyframes": {
-        "1": "Poor",
-        "10": "Excellent"
-      }
+      "range": [-3, 5],
+      "markers": { "-3": "Substandard", "1": "Typical", "5": "Excellent" }
     }
   ]
 }
 ```
-#### **Making Your Own Weights**
-- Purpose: A weights file adjusts the relative importance of each criterion in a survey.
-- File Naming Conventions:
-    - Format: `<survey_id>_<descriptive_token>.json`
-    - Examples: 
-      - `example_default_weights.json`
-      - `example_best_perspective.json`
-- Keys and Structure:
-    - Each weights file must include:
-      - `id`: Versioned survey identifier (e.g., example_survey:1.0).
-      - `name`: Human-readable name for the weights file.
-      - `description`: Brief explanation of the weighting purpose.
-      - `version`: Version of the weights file.
-      - `survey_id`: Link to the related survey (e.g., example_survey:1.0).
-      - `criteria_weights`: Object mapping criterion id to its weight value.
-Example Template:
+
+### Creating Custom Weights
+Weights adjust the importance of each criterion in a survey:
+- Include the following fields:
+  - **id**: Identifier for the weights file.
+  - **name**: Name of the weights.
+  - **description**: Purpose of the weighting.
+  - **version**: Version of the weights file.
+  - **survey_id**: The related survey.
+  - **criteria_weights**: Map criterion ids to weight values.
+
+#### Example Template
 ```json
 {
-  "id": "example_survey:1.0",
+  "id": "example_weights",
   "name": "Custom Weights Example",
   "description": "An example of custom weights for a survey.",
   "version": "1.0",
-  "survey_id": "example_survey:1.0",
-  "criteria_weights": {
-    "example_criterion": 1.5
-  }
+  "survey_id": "example",
+  "criteria_weights": { "example_criterion": 1.5 }
 }
 ```
-#### **Contributing a Survey or Weights**
-1. Fork the Repository: Create a fork of the zinny-surveys repository.
-1. Add Your File(s):
-   - Place new surveys in surveys/community/.
-   - Place new weights in weights/community/.
-1. Test Your Contribution:
-   - Ensure the JSON structure is valid.
-   - Use tools like jsonlint to validate.
-1. Create a Pull Request (PR):
-   - Provide a brief explanation of your contribution.
-   - Follow file naming conventions and JSON guidelines.
-   - Include examples or notes if needed.
-#### **General Guidelines**
-- Keep survey id and criteria consistent across related surveys to ensure compatibility.
-- Use clear, descriptive names for criteria and weights.
-- Consistency is key in survey design, so avoid duplicating values in existing surveys unless improving, consolidating, or extending them for specific purposes.
-- Updates to existing surveys should increment the version field using semantic versioning.
 
-#
-By following these guidelines, you help ensure high-quality, reusable contributions that benefit all users of the zinny-surveys repository. Thank you for your interest in contributing!
+## Submitting a Contribution
+1. **Fork the Repository**: Fork `zinny-surveys`.
+2. **Add Files**:
+   - Place surveys in `surveys/community/`.
+   - Place weights in `weights/community/`.
+3. **Validate Your Files**:
+   - Use tools like `jsonlint` to ensure valid JSON.
+4. **Submit a Pull Request**:
+   - Explain your contribution and its purpose.
+   - Ensure the files adhere to naming conventions and guidelines.
+
+By following these guidelines, your contributions help ensure high-quality, reusable surveys and weights that benefit the Zinny community.

@@ -1,15 +1,16 @@
 {
-    "id": "picture",
-    "name": "Picture Overall Ratings",
+    "id": "picture_extended",
+    "name": "Picture - Extended",
     "version": "1.0",
-    "description": "Evaluation criteria for overall excellence of a Picture Show.",
+    "description": "Extended criteria for overall excellence of a Picture Show.",
     "author": "the-zinny team",
+    "extends": "picture_basic",
     "defaults": {
       "range": [1, 10]
     },
     "criteria": [
       {
-        "id": "story",
+        "id": "storytelling",
         "name": "Storytelling",
         "description": "Clarity, originality, and impact of the narrative."
       },
@@ -34,8 +35,8 @@
         "description": "Contribution to understanding the human condition or how we exist in the world."
       },
       {
-        "id": "arts",
-        "name": "Arts",
+        "id": "artistry",
+        "name": "Artistry",
         "description": "Advancement of artistic techniques or practices."
       },
       {

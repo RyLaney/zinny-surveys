@@ -3,7 +3,7 @@
   "name": "Picture Overall (Technologist perspective)",
   "description": "Increased emphasis on visual aesthetics and technical criteria.",
   "version": "1.0",
-  "survey_id": "picture:1.0",
+  "survey_id": "picture_extended",
   "criteria_weights": {
       "arts": 0.5,
       "craft": 1.0,
