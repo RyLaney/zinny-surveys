@@ -1,26 +1,27 @@
-# A collection of survey definitions for evaluating media
+#  What's the skinny on the ciné
 
-This is zinny's surveys repository, a centralized location for surveys and weights used in evaluating media (e.g., films, TV, streaming series). 
+Zinny is a tool for rating media, and the surveys here provide for a rubric, allowing meaningful evaluation of consistent criteria across many titles.
+
+## A collection of survey definitions
+
+This repo is a collection of surveys used in [zinny](https://github.com/RyLaney/zinny).  They are published separately to allow for independent use, and to encourage community contributions.
 
 ## Motivtion:
-Zinny is a tool for rating media, and the structured definitions here provide for a rubric and allow meaningful evaluation of criteria across many titles and users. 
+It can be hard to compare movies when they cross genres or styles, or have been watched over a long span of time. The idea of a survey came from experience with structured data, a simple way to make data more meaningful. 
 
-Weights are the scoring patterns used in the evaluations. As separate definitions, they allow for adjusting the importance of criteria for each user or use case.
+There is so much expertise that goes into a movie which can't be captured in a single rating. The surveys here aspire to combine indepentent component ratings into a more meaningful rating.
 
-It provides:
-* **Surveys:** Structured definitions of evaluation criteria for rating and analyses.
-* **Weights:** Versioned scoring patterns to adjust the importance of criteria.
-* **Community Contributions:** A space for sharing user-defined surveys and weights.
+Surveys define the criteria to be measured, and Weights are the scoring patterns used in the evaluations.
 
-For more information about Zinny, see the [Zinny repository](https://github.com/RyLaney/zinny).
+For more information about Zinny, see the [zinny repository](https://github.com/RyLaney/zinny).
 
 ## Goals
 
-**Standardization:** Offer officially curated surveys for consistent evaluations.
+**Standardization:** Curated surveys and even weights for consistent evaluations.
 
-**Customization:** Allow users to define their own surveys and weights for specific use cases.
+**Customization:** Surveys are json and therefore easly crerated for any specific use case that is not already represented.  Weights for any given survey can be copied from the template and modified to suit individual needs.
 
-**Community Contributions:** Facilitate sharing and improvement of evaluation standards.
+**Community Contributions:** I'm sure I've missed some important criteria, and I'm sure there are many more surveys that could be useful.  Reach out or send a pull request to contribute.
 
 ## Terms and Definitions
 **Survey:** A predefined set of criteria for evaluating a media title. Each survey includes:
@@ -38,7 +39,7 @@ For more information about Zinny, see the [Zinny repository](https://github.com/
 
 **Weights:**
 * Define the relative importance of each criterion within a survey.
-* Weights refer to a survey
+* Weights refer to a survey and optionlly a version of that survey.
 * A survey can be evaluated with numerous weight sets, allowing for different perspectives in different contexts.
 
 
@@ -47,18 +48,20 @@ For more information about Zinny, see the [Zinny repository](https://github.com/
 ```plaintext
 surveys/
 ├── official/                     # Institutionally approved surveys
-│   ├── feature_vfx.json
-│   ├── general_audience.json
+│   ├── vfx.json
+│   ├── picture.json
 │   └── ...
 ├── community/                    # Community-contributed surveys
-└── private/                    # allocated for local surveys
+└── local/                        # reserved for local surveys
 
-weights/                      # Weighting configurations
-├── official/                 # Institutionally approved weights
-│   ├── vfx_weights.json
-│   └── audience_weights.json
-├── community/                # Community-contributed weights
-└── private/                    # allocated for local weight configurations
+weights/                          # Weighting configurations
+├── official/                     # Institutionally approved weights
+│   ├── vfx_even_weights.json
+│   ├── picture_even_weights.json
+│   ├── picture_storyteller.json
+│   └── picture_technologist.json
+├── community/                    # Community-contributed weights
+└── local/                        # reserved for local weights
 ```
 
 ## Examples
@@ -69,7 +72,7 @@ weights/                      # Weighting configurations
   "id": "vfx",
   "name": "Visual Effects Assessment",
   "version": "1.0",
-  "description": "Evaluation criteria for visual effects, including animation .",
+  "description": "Evaluation criteria for visual effects, including animation, makeup, special effects, screens (chroma and video), stunts, technical achievements, and generally anything that implements a digital workflow (CGI).",
   "author": "the-zinny team",
   "defaults": {
     "range": [1, 10]
@@ -112,7 +115,7 @@ weights/                      # Weighting configurations
   "name": "Visual Effects default (Even Weights)",
   "description": "Evenly distributed weights for evaluating visual effects.",
   "version": "1.0",
-  "survey_id": "visual_effects:1.0",
+  "survey_id": "vfx:1.0",
   "criteria_weights": {
     "artistry": 1.0,
     "community_value": 1.0,
@@ -129,5 +132,24 @@ weights/                      # Weighting configurations
 }
 ```
 
+## Installation
+If you want to contribute, clone the repository:
+```bash
+git clone https://github.com/RyLaney/zinny-surveys.git
+```
+
+If you just need the published surveys, zinny-surveys can be installed with pip: 
+```bash
+pip install git+https://github.com/RyLaney/zinny-surveys.git
+```
+Then you can import the surveys and look up the paths:
+```python
+import zinny_surveys
+
+# Example of loading surveys and weights
+surveys_path = zinny_surveys.get_surveys_directory()
+weights_path = zinny_surveys.get_weights_directory()
+```
+
 ## Contributing
-See the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this repository.
+See the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on how to contribute to this repository.
