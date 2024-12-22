@@ -1,3 +1,4 @@
+"""setup.py for zinny-surveys package."""
 from setuptools import setup, find_packages
 
 setup(
@@ -10,6 +11,7 @@ setup(
     },
     description='Surveys and weights for the-zinny',
     url='https://github.com/RyLaney/zinny-surveys',
-    author='the-zinny Team',
+    author="Ryan Laney",
     license='BSD-3-Clause',
+    python_requires=">=3.11",
 )

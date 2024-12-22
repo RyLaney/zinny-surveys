@@ -1,4 +1,3 @@
-with open("/mnt/data/CONTRIBUTING.md", "w") as file:
 ### Customization and Contribution Guidelines
 
 #### **Making Your Own Survey**
@@ -8,12 +7,14 @@ with open("/mnt/data/CONTRIBUTING.md", "w") as file:
     - `name`: Human-readable name.
     - `version`: Semantic versioning (e.g., `1.0`).
     - `description`: Brief explanation of the survey's purpose.
-    - `defaults`: Default values such as scoring `range` for each criterion.
+    - `defaults`: Default values such as scoring e.g.
+      - `range` (array of two numbers): Default scoring range for this survey
     - `criteria`: List of measurable criteria with:
       - `id`: Unique identifier for the criterion.
       - `name`: Criterion's human-readable name.
       - `description`: What the criterion evaluates.
       - `keyframes` (optional): Mappings of specific values to descriptions.
+      - `range` (optional): override of defaults scoring range for this criterion.
 - **Example Template**:
 ```json
 {
@@ -77,6 +78,7 @@ Example Template:
    - Provide a brief explanation of your contribution.
    - Follow file naming conventions and JSON guidelines.
    - Include examples or notes if needed.
+
 #### **General Guidelines**
 - Keep survey id and criteria consistent across related surveys to ensure compatibility.
 - Use clear, descriptive names for criteria and weights.

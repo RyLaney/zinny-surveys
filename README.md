@@ -47,7 +47,7 @@ For more information about Zinny, see the [zinny repository](https://github.com/
 
 ```plaintext
 surveys/
-├── official/                     # Institutionally approved surveys
+├── shared/                     # Institutionally approved surveys
 │   ├── vfx.json
 │   ├── picture.json
 │   └── ...
@@ -55,7 +55,7 @@ surveys/
 └── local/                        # reserved for local surveys
 
 weights/                          # Weighting configurations
-├── official/                     # Institutionally approved weights
+├── shared/                     # Institutionally approved weights
 │   ├── vfx_even_weights.json
 │   ├── picture_even_weights.json
 │   ├── picture_storyteller.json
@@ -66,7 +66,7 @@ weights/                          # Weighting configurations
 
 ## Examples
 
-* Survey Example: `surveys/official/feature_vfx.json`
+* Survey Example: `surveys/shared/feature_vfx.json`
 ```json
 {
   "id": "vfx",
@@ -108,7 +108,7 @@ weights/                          # Weighting configurations
     . . . .
 ```
 
-* Weighting Example: `weights/official/vfx_weights.json`
+* Weighting Example: `weights/shared/vfx_weights.json`
 ```json
 {
   "id": "vfx",
