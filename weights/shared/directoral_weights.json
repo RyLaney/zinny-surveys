@@ -3,7 +3,7 @@
   "name": "Directoral default (Even Weights)",
   "description": "Evenly weighted criteria for evaluating the achievements of a film's director.",
   "version": "1.0",
-  "survey_id": "directoral:1.0",
+  "survey_id": "directoral",
   "criteria_weights": {
     "contribution_arts": 1.0,
     "emotional_resonance": 1.0,
