@@ -23,7 +23,9 @@ For more information about Zinny, see the [zinny repository](https://github.com/
 
 **Community Contributions:** I'm sure I've missed some important criteria, and I'm sure there are many more surveys that could be useful.  Reach out or send a pull request to contribute.
 
-## Terms and Definitions
+## Definitions
+
+### Surveys
 **Survey:** A predefined set of criteria for evaluating a media title. Each survey includes:
 * **Metadata:** Describes the survey's purpose, version, author, and related details.
 * **Criteria:** Individual measures with attributes such as range and descriptions.
@@ -37,13 +39,7 @@ For more information about Zinny, see the [zinny repository](https://github.com/
   * **Range:** Valid scoring range (e.g., [0,10]).
   * **Value Labels:** Descriptions for specific values (e.g., 0: "No quality", 10: "best quality").
 
-**Weights:**
-* Define the relative importance of each criterion within a survey.
-* Weights refer to a survey and optionlly a version of that survey.
-* A survey can be evaluated with numerous weight sets, allowing for different perspectives in different contexts.
-
-
-## Repository Structure
+#### Repository Structure
 
 ```plaintext
 surveys/
@@ -53,20 +49,11 @@ surveys/
 │   └── ...
 ├── community/                    # Community-contributed surveys
 └── local/                        # reserved for local surveys
-
-weights/                          # Weighting configurations
-├── shared/                     # Institutionally approved weights
-│   ├── vfx_even_weights.json
-│   ├── picture_even_weights.json
-│   ├── picture_storyteller.json
-│   └── picture_technologist.json
-├── community/                    # Community-contributed weights
-└── local/                        # reserved for local weights
 ```
 
-## Examples
+#### Example JSON Representation:
 
-* Survey Example: `surveys/shared/feature_vfx.json`
+* Example survey: `surveys/shared/vfx_example.json`
 ```json
 {
   "id": "vfx",
@@ -82,7 +69,7 @@ weights/                          # Weighting configurations
       "id": "artistry",
       "name": "Artistry",
       "description": "The artistic quality, creativity, or aesthetic integration of visuals.",
-      "keyframes": {
+      "markers": {
         "0": "Not exceptional artistry",
         "10": "Exceptional artistry and creativity"
       }
@@ -91,7 +78,7 @@ weights/                          # Weighting configurations
       "id": "technical_achievement",
       "name": "Technical Achievement",
       "description": "The innovation and use of new or improved technology.",
-      "keyframes": {
+      "markers": {
         "0": "No new technology",
         "10": "Pioneering use of technology"
       }
@@ -100,7 +87,7 @@ weights/                          # Weighting configurations
       "id": "fidelity",
       "name": "Overall Fidelity",
       "description": "The overall realism and believability of the VFX.",
-      "keyframes": {
+      "markers": {
         "0": "Unconvincing VFX",
         "10": "Highly realistic or immersive"
       }
@@ -108,14 +95,34 @@ weights/                          # Weighting configurations
     . . . .
 ```
 
-* Weighting Example: `weights/shared/vfx_weights.json`
+### Weight Presers
+**Weights:**
+* Define the relative importance of each criterion within a survey.
+* Weights refer to a survey and optionlly a version of that survey.
+* A survey can be evaluated with numerous weight sets, allowing for different perspectives in different contexts.
+
+#### Repository Structure
+
+```plaintext
+weights/                          # Weighting configurations
+├── shared/                     # Institutionally approved weights
+│   ├── vfx_even_weights.json
+│   ├── picture_even_weights.json
+│   ├── picture_storyteller.json
+│   └── picture_technologist.json
+├── community/                    # Community-contributed weights
+└── local/                        # reserved for local weights
+```
+
+#### Example JSON Representation:
+* Example set of weights: `weights/shared/vfx_weights.json`
 ```json
 {
   "id": "vfx",
   "name": "Visual Effects default (Even Weights)",
   "description": "Evenly distributed weights for evaluating visual effects.",
   "version": "1.0",
-  "survey_id": "vfx:1.0",
+  "survey_id": "vfx",
   "criteria_weights": {
     "artistry": 1.0,
     "community_value": 1.0,
@@ -131,6 +138,42 @@ weights/                          # Weighting configurations
   }
 }
 ```
+## Collections
+
+**Collection:**
+* A curated group of homogeneous items, such as titles or surveys.
+* Collections are represented as JSON objects with the following fields:
+  * **ID:** A unique identifier for the collection (e.g., "favorites_2024").
+  * **Name:** A human-readable name for the collection (e.g., "My Favorites").
+  * **Description:** An optional description of the collection (e.g., "Movies I plan to watch this year.").
+  * **Items:** A list of objects, where each object represents an item in the collection.
+    * For **Title Collections**, each item includes:
+      - **Name:** The title of the movie or series.
+      - **Year:** The release year of the movie or series.
+
+#### Example JSON Representation:
+* Collection Example: `collections/shared/favorites_2024.json`
+```json
+{
+  "id": "favorites_2024",
+  "name": "Favorites 2024",
+  "description": "Movies I plan to watch in 2024.",
+  "items": [
+    {
+      "name": "Madame Web",
+      "year": 2024
+    },
+    {
+      "name": "Furiosa: A Mad Max Saga",
+      "year": 2024
+    },
+    {
+      "name": "Spaceman",
+      "year": 2024
+    }
+  ]
+}
+
 
 ## Installation
 If you want to contribute, clone the repository:
@@ -142,13 +185,19 @@ If you just need the published surveys, zinny-surveys can be installed with pip:
 ```bash
 pip install git+https://github.com/RyLaney/zinny-surveys.git
 ```
-Then you can import the surveys and look up the paths:
-```python
-import zinny_surveys
 
-# Example of loading surveys and weights
-surveys_path = zinny_surveys.get_surveys_directory()
-weights_path = zinny_surveys.get_weights_directory()
+Then you can import pkg_resources and look up the paths:
+```python
+import pkg_resources
+import json
+
+def load_json_file(package, resource_path):
+    resource = pkg_resources.resource_string(package, resource_path)
+    return json.loads(resource)
+
+# Example usage
+data = load_json_file('zinny_surveys', 'surveys/shared/example.json')
+print(data)
 ```
 
 ## Contributing

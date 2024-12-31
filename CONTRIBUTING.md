@@ -13,7 +13,7 @@
       - `id`: Unique identifier for the criterion.
       - `name`: Criterion's human-readable name.
       - `description`: What the criterion evaluates.
-      - `keyframes` (optional): Mappings of specific values to descriptions.
+      - `markers` (optional): Mappings of specific values to descriptions.
       - `range` (optional): override of defaults scoring range for this criterion.
 - **Example Template**:
 ```json
@@ -30,7 +30,7 @@
       "id": "example_criterion",
       "name": "Example Criterion",
       "description": "An example measurable factor.",
-      "keyframes": {
+      "markers": {
         "1": "Poor",
         "10": "Excellent"
       }
@@ -47,20 +47,20 @@
       - `example_best_perspective.json`
 - Keys and Structure:
     - Each weights file must include:
-      - `id`: Versioned survey identifier (e.g., example_survey:1.0).
+      - `id`: A survey identifier (e.g., example_survey).
       - `name`: Human-readable name for the weights file.
       - `description`: Brief explanation of the weighting purpose.
       - `version`: Version of the weights file.
-      - `survey_id`: Link to the related survey (e.g., example_survey:1.0).
+      - `survey_id`: Link to the related survey (e.g., example_survey).
       - `criteria_weights`: Object mapping criterion id to its weight value.
 Example Template:
 ```json
 {
-  "id": "example_survey:1.0",
+  "id": "example_survey",
   "name": "Custom Weights Example",
   "description": "An example of custom weights for a survey.",
   "version": "1.0",
-  "survey_id": "example_survey:1.0",
+  "survey_id": "example_survey",
   "criteria_weights": {
     "example_criterion": 1.5
   }

@@ -3,7 +3,7 @@
   "name": "Documentary default (Even Weights)",
   "description": "Evenly weighted criteria for evaluating documentary films.",
   "version": "1.0",
-  "survey_id": "docs:1.0",
+  "survey_id": "docs",
   "criteria_weights": {
     "culture": 1.0,
     "emotion": 1.0,

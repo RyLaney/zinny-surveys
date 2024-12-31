@@ -3,15 +3,16 @@ from setuptools import setup, find_packages
 
 setup(
     name='zinny-surveys',
-    version='1.0',
+    version='1.0.0',
     packages=find_packages(),
     include_package_data=True,
+    package_dir={"zinny_sruveys": "surveys"},
     package_data={
-        'zinny_surveys': ['surveys/**/*.json', 'weights/**/*.json']
+        '': ['surveys/**/*.json', 'weights/**/*.json']
     },
-    description='Surveys and weights for the-zinny',
+    description='Surveys and weights for Zinny.',
     url='https://github.com/RyLaney/zinny-surveys',
     author="Ryan Laney",
     license='BSD-3-Clause',
-    python_requires=">=3.11",
+    python_requires=">=3",
 )

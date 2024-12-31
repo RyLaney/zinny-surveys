@@ -3,7 +3,7 @@
   "name": "Picture Overall (Even Weights)",
   "description": "Evenly weighted criteria for evaluating feature films.",
   "version": "1.0",
-  "survey_id": "picture:1.0",
+  "survey_id": "picture_extended",
   "criteria_weights": {
       "arts": 1.0,
       "craft": 1.0,

@@ -1,8 +1,8 @@
 {
   "id": "acting",
-  "name": "Acting Assessment (Lead and Supporting Roles)",
+  "name": "Acting Performance",
   "version": "1.0",
-  "description": "Evaluation criteria for lead and supporting acting performances.",
+  "description": "Evaluation criteria for lead and supporting acting roles.",
   "author": "the-zinny team",
   "defaults": {
     "range": [1, 10]
