@@ -1,27 +1,31 @@
-#  What's the skinny on the ciné
+# Zinny Surveys: Structured Media Evaluation
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](LICENSE)
 
-Zinny is a tool for rating media, and the surveys here provide for a rubric, allowing meaningful evaluation of consistent criteria across many titles.
+##  What's the skinny on the ciné?
+
+Zinny is a tool for rating media, and the surveys here provide for a meaningful evaluation of consistent criteria across many titles and perspectives.
 
 ## A collection of survey definitions
 
-This repo is a collection of surveys used in [zinny](https://github.com/RyLaney/zinny).  They are published separately to allow for independent use, and to encourage community contributions.
+This repo is a collection of surveys used by the [zinny-api](https://github.com/RyLaney/zinny-api) and front end [zinny-webui](https://github.com/RyLaney/zinny-webui).  They are published separately to allow for independent use, and to encourage community contributions.
 
-## Motivtion:
-It can be hard to compare movies when they cross genres or styles, or have been watched over a long span of time. The idea of a survey came from experience with structured data, a simple way to make data more meaningful. 
+## Installation
 
-There is so much expertise that goes into a movie which can't be captured in a single rating. The surveys here aspire to combine indepentent component ratings into a more meaningful rating.
+see [SETUP.md](https://github.com/RyLaney/zinny-surveys/blob/main/SETUP.md)
 
-Surveys define the criteria to be measured, and Weights are the scoring patterns used in the evaluations.
+## Motivation:
+Comparing movies across genres, styles, or time periods can be challenging. Surveys offer a structured approach to evaluate films by breaking down complex elements into measurable components. This approach captures the expertise behind a movie more comprehensively than a single score.
 
-For more information about Zinny, see the [zinny repository](https://github.com/RyLaney/zinny).
+Surveys define measurable criteria, while weights establish their relative importance, making evaluations both meaningful and customizable.
 
 ## Goals
 
-**Standardization:** Curated surveys and even weights for consistent evaluations.
+* **Standardization:** Standardization: Provide curated surveys and weights for consistent and reliable evaluations.
 
-**Customization:** Surveys are json and therefore easly crerated for any specific use case that is not already represented.  Weights for any given survey can be copied from the template and modified to suit individual needs.
+* **Customization:** Easily create or modify JSON-based surveys and weights to fit specific needs.
 
-**Community Contributions:** I'm sure I've missed some important criteria, and I'm sure there are many more surveys that could be useful.  Reach out or send a pull request to contribute.
+* **Community Contributions:** Contributions are welcome to expand criteria or add new surveys. Submit pull requests or reach out to get involved.
+
 
 ## Definitions
 
@@ -31,13 +35,12 @@ For more information about Zinny, see the [zinny repository](https://github.com/
 * **Criteria:** Individual measures with attributes such as range and descriptions.
 
 **Criteria:**
-* A measurable attribute or factor within a survey.
-* Defined by:
+* Criteria are measurable attributes within a survey, defined as:
   * **ID:** A unique identifier (e.g., "artistry").
-  * **Name:** A human-readable name (e.g., "Artistry").
-  * **Description:** Explanation of what is being measured.
-  * **Range:** Valid scoring range (e.g., [0,10]).
-  * **Value Labels:** Descriptions for specific values (e.g., 0: "No quality", 10: "best quality").
+  * **Name:** A human-readable label (e.g., "Artistry").
+  * **Description:** Details what the criterion measures.
+  * **Range:** (optional) Specifies valid scoring values (e.g., [1,10]).
+  * **Value Labels:** (optional) Explains specific values within the range (e.g., 0: "No quality", 10: "best quality").
 
 #### Repository Structure
 
@@ -52,54 +55,11 @@ surveys/
 ```
 
 #### Example JSON Representation:
+see [Examples.md](https://github.com/RyLaney/zinny-surveys/blob/main/docs/Examples.md)
 
-* Example survey: `surveys/shared/vfx_example.json`
-```json
-{
-  "id": "vfx",
-  "name": "Visual Effects Assessment",
-  "version": "1.0",
-  "description": "Evaluation criteria for visual effects, including animation, makeup, special effects, screens (chroma and video), stunts, technical achievements, and generally anything that implements a digital workflow (CGI).",
-  "author": "the-zinny team",
-  "defaults": {
-    "range": [1, 10]
-  },
-    "attributes": [
-    {
-      "id": "artistry",
-      "name": "Artistry",
-      "description": "The artistic quality, creativity, or aesthetic integration of visuals.",
-      "markers": {
-        "0": "Not exceptional artistry",
-        "10": "Exceptional artistry and creativity"
-      }
-    },
-    {
-      "id": "technical_achievement",
-      "name": "Technical Achievement",
-      "description": "The innovation and use of new or improved technology.",
-      "markers": {
-        "0": "No new technology",
-        "10": "Pioneering use of technology"
-      }
-    },
-    {
-      "id": "fidelity",
-      "name": "Overall Fidelity",
-      "description": "The overall realism and believability of the VFX.",
-      "markers": {
-        "0": "Unconvincing VFX",
-        "10": "Highly realistic or immersive"
-      }
-    },
-    . . . .
-```
-
-### Weight Presers
+### Weight Presets
 **Weights:**
-* Define the relative importance of each criterion within a survey.
-* Weights refer to a survey and optionlly a version of that survey.
-* A survey can be evaluated with numerous weight sets, allowing for different perspectives in different contexts.
+Weights determine the relative importance of each survey criterion. They are linked to specific surveys (and optionally, survey versions) and allow for multiple perspectives by using different weight configurations.
 
 #### Repository Structure
 
@@ -114,91 +74,19 @@ weights/                          # Weighting configurations
 └── local/                        # reserved for local weights
 ```
 
-#### Example JSON Representation:
-* Example set of weights: `weights/shared/vfx_weights.json`
-```json
-{
-  "id": "vfx",
-  "name": "Visual Effects default (Even Weights)",
-  "description": "Evenly distributed weights for evaluating visual effects.",
-  "version": "1.0",
-  "survey_id": "vfx",
-  "criteria_weights": {
-    "artistry": 1.0,
-    "community_value": 1.0,
-    "contribution": 1.0,
-    "craft": 1.0,
-    "fidelity_worst": 1.0,
-    "fidelity": 1.0,
-    "humanity_value": 1.0,
-    "necessity": 1.0,
-    "production": 1.0,
-    "support": 1.0,
-    "technical_achievement": 1.0
-  }
-}
-```
 ## Collections
 
 **Collection:**
-* A curated group of homogeneous items, such as titles or surveys.
-* Collections are represented as JSON objects with the following fields:
-  * **ID:** A unique identifier for the collection (e.g., "favorites_2024").
-  * **Name:** A human-readable name for the collection (e.g., "My Favorites").
-  * **Description:** An optional description of the collection (e.g., "Movies I plan to watch this year.").
-  * **Items:** A list of objects, where each object represents an item in the collection.
-    * For **Title Collections**, each item includes:
-      - **Name:** The title of the movie or series.
-      - **Year:** The release year of the movie or series.
-
-#### Example JSON Representation:
-* Collection Example: `collections/shared/favorites_2024.json`
-```json
-{
-  "id": "favorites_2024",
-  "name": "Favorites 2024",
-  "description": "Movies I plan to watch in 2024.",
-  "items": [
-    {
-      "name": "Madame Web",
-      "year": 2024
-    },
-    {
-      "name": "Furiosa: A Mad Max Saga",
-      "year": 2024
-    },
-    {
-      "name": "Spaceman",
-      "year": 2024
-    }
-  ]
-}
-
-
-## Installation
-If you want to contribute, clone the repository:
-```bash
-git clone https://github.com/RyLaney/zinny-surveys.git
-```
-
-If you just need the published surveys, zinny-surveys can be installed with pip: 
-```bash
-pip install git+https://github.com/RyLaney/zinny-surveys.git
-```
-
-Then you can import pkg_resources and look up the paths:
-```python
-import pkg_resources
-import json
-
-def load_json_file(package, resource_path):
-    resource = pkg_resources.resource_string(package, resource_path)
-    return json.loads(resource)
-
-# Example usage
-data = load_json_file('zinny_surveys', 'surveys/shared/example.json')
-print(data)
-```
+Collections group related items, such as titles or surveys, into curated sets. Each collection includes:
+  * **ID:** A unique identifier (e.g., "favorites_2024").
+  * **Name:** A human-readable name (e.g., "My Favorites").
+  * **Description:** Optional context for the collection (e.g., "Movies to watch this year.").
+  * **Items:** A list of either titles or surveys in the collection.
+    * **Titles:** Include name (e.g., "Madame Web") and year (e.g., 2024).
+    * **Surveys:** Include name (e.g., "VFX Evaluation") and version (e.g., "1.0").
 
 ## Contributing
-See the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on how to contribute to this repository.
+We welcome contributions! If you'd like to report an issue, suggest a feature, or contribute code, please check out the [CONTRIBUTING.md](https://github.com/RyLaney/zinny-surveys/blob/main/CONTRIBUTING.md) file for guidelines.
+
+## Acknowledgements
+- Development was sponsored by [Teus Media](https://teus.media).
