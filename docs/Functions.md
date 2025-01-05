@@ -13,18 +13,22 @@ zinny_surveys.list_files("surveys", "shared")
 # ['vfx_exhaustive.json', 'docs.json', 'vfx_extended.json', 'picture_extended.json', 'directoral.json', 'cinematography.json', 'vfx.json', 'picture.json', 'acting.json']
 ```
 
-### Acccess using pkg_resources:
+### Acccess using importlib.resourcves:
 ```python
-import pkg_resources
 import json
+import importlib
+def get_resource_paths(package, data_type, scopes=['shared', 'local']):
+    # package = 'zinny_surveys'
+    package_root = importlib.resources.files(package)
+    if not os.path.exists(package_root):
+        return None
+    paths = {}
+    for scope in scopes:
+        paths[scope] = package_root.joinpath('data', data_type, scope)
+    return paths
 
-def load_json_file(package, resource_path):
-    resource = pkg_resources.resource_string(package, resource_path)
-    return json.loads(resource)
-
-# Example usage
-data = load_json_file('zinny_surveys', 'surveys/shared/example.json')
-print(data)
+SURVEYS_PATHS = get_resource_paths('zinny_surveys', 'surveys')
+WEIGHTS_PATHS = get_resource_paths('zinny_surveys', 'weights')
 ```
 
 
