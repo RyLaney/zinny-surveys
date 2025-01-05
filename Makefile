@@ -1,3 +1,5 @@
+VERSION=$(shell sed -n 's/^version = "\([0-9.]*\)"/\1/p' pyproject.toml)
+
 build:
 	python ../zinny-dev/bump_version.py
 	python -m build
@@ -13,3 +15,15 @@ clean:
 
 testpypi:
 	python -m twine upload --repository testpypi dist/*
+
+pypi:
+	python -m twine upload dist/*
+	$(MAKE) tag
+
+tag:
+	# Create a Git tag with the current version and push it to the remote repository
+	git tag -a v$(VERSION) -m "Release v$(VERSION)"
+	git push origin v$(VERSION)
+
+print-version:
+	@echo $(VERSION)

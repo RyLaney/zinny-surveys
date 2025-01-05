@@ -14,6 +14,7 @@
       "name": "Artistry",
       "description": "The artistic quality, creativity, or aesthetic integration of visuals.",
       "markers": {
+      "markers": {
         "1": "Not exceptional artistry",
         "10": "Exceptional artistry and creativity"
       }
@@ -23,6 +24,7 @@
       "name": "Technical Achievement",
       "description": "The innovation and use of new or improved technology.",
       "markers": {
+      "markers": {
         "1": "No new technology",
         "10": "Pioneering use of technology"
       }
@@ -31,6 +33,7 @@
       "id": "fidelity",
       "name": "Overall Fidelity",
       "description": "The overall realism and believability of the VFX.",
+      "markers": {
       "markers": {
         "1": "Unconvincing VFX",
         "10": "Highly realistic or immersive"
