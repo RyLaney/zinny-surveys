@@ -1,0 +1,7 @@
+{
+    "id": "user_weights",
+    "description": "User weights.",
+    "criteria_weights": {
+        "artistry": 1.0
+    }
+}

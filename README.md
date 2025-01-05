@@ -30,6 +30,9 @@ Surveys define measurable criteria, while weights establish their relative impor
 ## Definitions
 
 ### Surveys
+## Definitions
+
+### Surveys
 **Survey:** A predefined set of criteria for evaluating a media title. Each survey includes:
 * **Metadata:** Describes the survey's purpose, version, author, and related details.
 * **Criteria:** Individual measures with attributes such as range and descriptions.
@@ -42,6 +45,7 @@ Surveys define measurable criteria, while weights establish their relative impor
   * **Range:** (optional) Specifies valid scoring values (e.g., [1,10]).
   * **Value Labels:** (optional) Explains specific values within the range (e.g., 0: "No quality", 10: "best quality").
 
+#### Repository Structure
 #### Repository Structure
 
 ```plaintext
