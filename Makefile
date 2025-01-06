@@ -13,12 +13,21 @@ test:
 clean:
 	rm -rf dist/ build/ src/zinny_surveys.egg-info
 
+
 testpypi:
 	python -m twine upload --repository testpypi dist/*
+
+testpypi-install:
+	python -m pip install --index-url https://test.pypi.org/simple/ --no-deps zinny-surveys
+
 
 pypi:
 	python -m twine upload dist/*
 	$(MAKE) tag
+
+pypi-install:
+	python -m pip install zinny-surveys
+
 
 tag:
 	# Create a Git tag with the current version and push it to the remote repository
