@@ -10,40 +10,13 @@
   },
     "criteria": [
     {
-      "id": "artistry",
-      "name": "Artistry",
-      "description": "The artistic quality, creativity, or aesthetic integration of visuals.",
-      "markers": {
-        "1": "Not exceptional artistry",
-        "10": "Exceptional artistry and creativity"
-      }
-    },
-    {
-      "id": "technical_achievement",
-      "name": "Technical Achievement",
-      "description": "The innovation and use of new or improved technology.",
-      "markers": {
-        "1": "No new technology",
-        "10": "Pioneering use of technology"
-      }
-    },
-    {
       "id": "production",
       "name": "Production Achievement",
       "description": "The improvement of support tools and processes, exceptional management of process, or groundbreaking scale of scope.",
       "markers": {
         "1": "Lacked support",
         "5": "Neutral",
-        "10": "Exceptional use of supporting implementations"
-      }
-    },
-    {
-      "id": "craft",
-      "name": "Application Skill",
-      "description": "The skill level in applying VFX techniques effectively.",
-      "markers": {
-        "1": "Turnkey or off-the-shelf",
-        "10": "Masterful"
+        "10": "Exceptional"
       }
     },
     {
@@ -51,36 +24,17 @@
       "name": "Overall Fidelity",
       "description": "The overall realism and believability of the VFX.",
       "markers": {
-        "1": "Unconvincing VFX",
-        "10": "Highly realistic or immersive"
+        "1": "Unconvincing",
+        "10": "Exceptional"
       }
     },
     {
       "id": "fidelity_worst",
       "name": "Worst Case Fidelity",
-      "description": "The quality of the least convincing VFX scenes.",
+      "description": "A measure of consistency of fidelity across the body of work.",
       "markers": {
-        "1": "Poor quality",
-        "10": "No shots were out of place"
-      }
-    },
-    {
-      "id": "necessity",
-      "name": "Necessity of VFX",
-      "description": "The importance of visual effects in conveying the story, or overall success.",
-      "markers": {
-        "1": "Not necessary",
-        "10": "Crucial to the story"
-      }
-    },
-    {
-      "id": "contribution",
-      "name": "Contribution to Narrative",
-      "description": "The overall contribution of VFX to the film's narrative.",
-      "markers": {
-        "1": "Detracted from the film",
-        "5": "neural conrtibution",
-        "10": "Significant contribution"
+        "1": "Substandard",
+        "10": "Exceptional"
       }
     },
     {
@@ -88,65 +42,48 @@
       "name": "Supporting Role",
       "description": "The VFX supported or enhanced the process of acting, directing, or other film elements.",
       "markers": {
-        "1": "impacts outweighed the benefits",
-        "5": "neutral application",
-        "10": "VFX was enhanced other elements"
+        "1": "negative impacts",
+        "5": "typical",
+        "10": "Enhanced other aspects"
       }
     },
     {
       "id": "sfx_overall",
       "name": "SFX (Overall)",
-      "description": "IRL special effects, like explosions, pyrotechnics, and other practical effects.",
-      "markers": {
-        "1": "Unconvincing or poorly executed",
-        "10": "Seamlessly integrated and highly effective"
-      }
+      "description": "IRL special effects, like explosions, pyrotechnics, and other practical effects."
     },
     {
       "id": "cgi_overall",
       "name": "CGI (Overall)",
       "description": "Creating animated sequences using computer-generated imagery (CGI).",
       "markers": {
-        "1": "Unrealistic or poorly rendered",
+        "1": "Substandard",
         "10": "Highly realistic and immersive"
       }
     },
     {
       "id": "character_animation",
       "name": "Character Animation",
-      "description": "Bringing digital characters to life through movement and expression.",
-      "markers": {
-        "1": "Stiff or unconvincing",
-        "10": "Highly expressive and lifelike"
-      }
+      "description": "Bringing digital characters to life through movement and expression."
     },
     {
       "id": "compositing",
       "name": "Compositing",
       "description": "Combining multiple visual elements into a single image or sequence.",
       "markers": {
-        "1": "Poorly integrated elements",
-        "10": "Seamless and cohesive integration"
+        "1": "Substandard",
+        "10": "Seamless integrations"
       }
     },
     {
       "id": "simulation_effects",
       "name": "Simulation Effects",
-      "description": "Creating realistic simulations of natural phenomena like water, fire, smoke, and explosions.",
-      "markers": {
-        "1": "Unrealistic or poorly simulated",
-        "10": "Highly realistic and convincing"
-      }
+      "description": "Creating realistic simulations of natural phenomena like water, fire, smoke, and explosions."
     },
     {
       "id": "stop_motion",
       "name": "Stop Motion Animation",
-      "description": "Creating animation by physically manipulating objects frame by frame.",
-      "markers": {
-        "1": "Inconsistent or poorly crafted models",
-        "5": "Moderately consistent with some craft",
-        "10": "Exceptionally consistent and expertly crafted models"
-      }
+      "description": "Creating animation by physically manipulating objects frame by frame."
     },
     {
       "id": "humanity_value",

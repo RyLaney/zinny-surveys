@@ -5,7 +5,15 @@ build:
 	python -m build
 
 install:
-	python -m pip install --upgrade .
+	$(MAKE) uninstall
+	python -m pip install .
+
+install-e:
+	$(MAKE) uninstall
+	python -m pip install -e .
+
+uninstall:
+	python -m pip uninstall -y zinny-surveys
 
 test:
 	python -m pytest tests

@@ -26,6 +26,7 @@ To install `zinny-surveys`, you can either clone the repository for development 
 ### Install as a Package
 If you only need the published surveys:
    ```bash
+   # from pypi
    pip install zinny-surveys
    # or from the repository
    pip install git+https://github.com/RyLaney/zinny-surveys.git
