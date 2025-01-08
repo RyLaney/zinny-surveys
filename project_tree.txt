@@ -1,0 +1,62 @@
+.
+├── CONTRIBUTING.md
+├── LICENSE
+├── Makefile
+├── README.md
+├── SETUP.md
+├── docs
+│   ├── Examples.md
+│   └── Functions.md
+├── project_tree.txt
+├── pyproject.toml
+├── requirements-dev.txt
+├── src
+│   └── zinny_surveys
+│       ├── __init__.py
+│       └── data
+│           ├── surveys
+│           │   ├── contrib
+│           │   ├── local
+│           │   └── shared
+│           │       ├── acting.json
+│           │       ├── cinematography.json
+│           │       ├── directoral.json
+│           │       ├── docs.json
+│           │       ├── picture.json
+│           │       ├── picture_extended.json
+│           │       ├── runoff_acting.json
+│           │       ├── runoff_cinematography.json
+│           │       ├── runoff_directoral.json
+│           │       ├── runoff_docs.json
+│           │       ├── runoff_picture.json
+│           │       ├── runoff_vfx.json
+│           │       ├── vfx_basic.json
+│           │       ├── vfx_exhaustive.json
+│           │       └── vfx_extended.json
+│           └── weights
+│               ├── contrib
+│               ├── local
+│               │   └── user_weights.json
+│               └── shared
+│                   ├── acting_weights.json
+│                   ├── cinematography_weights.json
+│                   ├── directoral_weights.json
+│                   ├── docs_weights.json
+│                   ├── picture_storyteller.json
+│                   ├── picture_technologist.json
+│                   ├── picture_weights.json
+│                   ├── vfx_extended_weights.json
+│                   └── vfx_weights.json
+├── tests
+│   └── test_zinny_surveys.py
+├── weights
+│   └── local
+│       └── user_weights.json
+└── zinny_surveys-0.1.8
+    └── src
+        └── zinny_surveys
+            └── data
+                └── surveys
+                    └── shared
+
+22 directories, 38 files
